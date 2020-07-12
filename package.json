@@ -1,9 +1,12 @@
 {
   "name": "gandi-ddns-node",
   "version": "1.0.0",
-  "description": "Update Gandi domain register with your ip using Gandi's API",
+  "description": "Update Gandi domain record with your local ip using Gandi's live API",
   "main": "src/index.js",
-  "author": "Sergio Carracedo <hi@sergiocarracedo.es>",
+  "author": {
+    "name": "Sergio Carracedo",
+    "email": "hi@sergiocarracedo.es"
+  },
   "license": "MIT",
   "private": false,
   "dependencies": {
