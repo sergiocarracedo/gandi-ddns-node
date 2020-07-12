@@ -1,6 +1,6 @@
 {
   "name": "gandi-ddns-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Update Gandi domain records with your local ip using Gandi's live API",
   "main": "bin/gandi-ddns",
   "author": {
