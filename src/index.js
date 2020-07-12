@@ -34,10 +34,10 @@ function updateRecords(apiKey, apiBase, uuid, subdomain, ip, ttl) {
   const endpoint = `${apiBase}/zones/${uuid}/records/${subdomain}/A`
   const payload = {
     rrset_ttl: ttl,
-    rrset_values: [ip],
+    rrset_values: [ip]
   }
 
-  const res = JSON.parse(request('GET', endpoint, {
+  const res = JSON.parse(request('PUT', endpoint, {
     headers: {
       'Content-Type': 'application/json',
       'X-Api-Key': apiKey
@@ -57,7 +57,7 @@ function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, force, verb
   // Get current IP
   let ip
   try {
-    const ip = getCurrentIp(ipProvider)
+    ip = getCurrentIp(ipProvider)
     if (verbose) {
       console.log(chalk.green(`Local current IP ${ip}`))
     }
