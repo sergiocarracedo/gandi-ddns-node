@@ -7,6 +7,9 @@
     "name": "Sergio Carracedo",
     "email": "hi@sergiocarracedo.es"
   },
+  "publishConfig": {
+     "registry": "https://npm.pkg.github.com/"
+  },
   "license": "MIT",
   "private": false,
   "dependencies": {
