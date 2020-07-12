@@ -1,6 +1,6 @@
 {
   "name": "gandi-ddns-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Update Gandi domain records with your local ip using Gandi's live API",
   "main": "bin/gandi-ddns",
   "author": {
@@ -10,9 +10,18 @@
   "publishConfig": {
      "registry": "https://npm.pkg.github.com/"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergiocarracedo/gandi-ddns-node.git"
+  },
+  "homepage": "https://github.com/sergiocarracedo/gandi-ddns-node",
+  "bin": {
+    "gandi-ddns": "bin/gandi-ddns.js"
+  },
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "gandi-ddns": "file:src/index.js",
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "minimist": "^1.2.5",
