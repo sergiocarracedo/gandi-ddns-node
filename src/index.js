@@ -49,11 +49,12 @@ function updateRecords(apiKey, apiBase, uuid, subdomain, ip, ttl) {
 }
 
 function help () {
-  console.log('Gandi ddns')
+  console.log('Gandi ddns node')
   console.log('A dynamic IP updater for Gandi domains')
   console.log()
   console.log('Options:')
 
+  console.log('  --help -h Show this help')
   console.log('  --api-key Gandi production key')
   console.log('  --api-base Gandi api base. Default: https://dns.api.gandi.net/api/v5')
   console.log('  --domain domain to update')
@@ -157,17 +158,21 @@ function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, ip, force, 
 }
 
 module.exports = () => {
-  main(
-    argv['api-key'] || process.env.API_KEY,
-  argv['api-base'] || process.env.API_BASE || 'https://dns.api.gandi.net/api/v5',
-    argv.domain || process.env.DOMAIN,
-    argv.subdomain || process.env.SUBDOMAIN,
-    argv.ttl || process.env.TTL || 300,
-    argv['ip-provider'] || process.env.IP_PROVIDER || 'https://ifconfig.co/ip',
-    argv['ip'] || null,
-    argv['force'] || false,
-    argv['v'] || false
-  )
+  if (argv['help'] || argv['h']) {
+    help()
+  } else {
+    main(
+      argv['api-key'] || process.env.API_KEY,
+      argv['api-base'] || process.env.API_BASE || 'https://dns.api.gandi.net/api/v5',
+      argv.domain || process.env.DOMAIN,
+      argv.subdomain || process.env.SUBDOMAIN,
+      argv.ttl || process.env.TTL || 300,
+      argv['ip-provider'] || process.env.IP_PROVIDER || 'https://ifconfig.co/ip',
+      argv['ip'] || null,
+      argv['force'] || false,
+      argv['v'] || false
+    )
+  }
 }
 
 
