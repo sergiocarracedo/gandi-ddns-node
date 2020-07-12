@@ -2,7 +2,16 @@ This tool, written in NodeJS, is a dynamic DNS updater for Gandi. It uses LiveDN
 
 Highly inspirated by https://github.com/cavebeat/gandi-live-dns
 
-## Usage
+
+## Install
+
+For global install
+
+```
+yarn global add gandi-ddns-node
+```
+
+For local install
 
 * Clone this repo
 * Copy `.env.example` to `.env`
@@ -10,9 +19,11 @@ Highly inspirated by https://github.com/cavebeat/gandi-live-dns
 * Install node dependencies with `yarn` or `npm install`
 * (optional) Add to ENV if you want to use from enywhere `export PATH=[PATH_TO_THIS]/bin:$PATH`
 
-* Run script with `gandi-ddn` or `[PATH_TO_THIS]/bin/gandi-ddn`
+## Usage
 
-If you don't set arguments config values are getted from .env file
+* Run script with `gandi-ddns` or `[PATH_TO_THIS]/bin/gandi-ddns`
+
+If you don't set arguments config values are gotten from .env file
 
 ```shell script
 $ gandi-ddns --api-key [apiKey] --api-base [apiBase] --domain [domain] --subdomain [subdomain] --ttl [ttl] -- ip-provider [ip-provider] 
