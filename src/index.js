@@ -48,8 +48,34 @@ function updateRecords(apiKey, apiBase, uuid, subdomain, ip, ttl) {
   return res
 }
 
+function help () {
+  console.log('Gandi ddns')
+  console.log('A dynamic IP updater for Gandi domains')
+  console.log()
+  console.log('Options:')
+
+  console.log('  --api-key Gandi production key')
+  console.log('  --api-base Gandi api base. Default: https://dns.api.gandi.net/api/v5')
+  console.log('  --domain domain to update')
+  console.log('  --Subdomain Subdomain to update (or comma separated list of subdomains)')
+  console.log('  --ttl Time to live in seconds. Default 300')
+  console.log('  --ip-provider Local computer ip provider. Default: https://ifconfig.co/ip')
+  console.log('  --force Force to update even if local ip and gandi ip are the same')
+  console.log('  --ip Manual ip instead of get from provider')
+  console.log('  --v Verbose mode')
+}
+
 
 function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, ip, force, verbose) {
+  if (!apiKey || !domain || !subdomains) {
+    console.log(chalk.red('Missing config values. You can use .env file or arguments'))
+    help()
+
+    process.exit(1)
+  }
+
+
+
   subdomains = subdomains
     .split(',')
     .map(subdomain => subdomain.trim())
