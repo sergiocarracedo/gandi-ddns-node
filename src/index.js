@@ -118,11 +118,16 @@ function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, ip, force, 
         }
       }
     })
+    if (verbose) {
+      console.log(chalk.green('Done!'))
+    }
+  } else {
+    if (verbose) {
+      console.log(chalk.yellow('IP not changed. Done!'))
+    }
   }
 
-  if (verbose) {
-    console.log(chalk.green('Done!'))
-  }
+
 }
 
 module.exports = () => {
