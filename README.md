@@ -1,15 +1,20 @@
 This tool, written in NodeJS, is a dynamic DNS updater for Gandi. It uses LiveDNS REST API to update the zone for a subdomain of a domain to point at the external IPv4 address of the computer it has been run from.
 
-
-
 Highly inspirated by https://github.com/cavebeat/gandi-live-dns
-
-
 
 ## Usage
 
+Add to ENV if you want to use from enywhere
+
+```
+export PATH=[PATH_TO_THIS]/bin:$PATH
+```
+
+
 ```shell script
 $ gandi-ddn
+# or
+$ [PATH_TO_THIS]/bin/gandi-ddn
 ```
 
 If you don't set arguments config values are getted from .env file

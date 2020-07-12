@@ -3,16 +3,6 @@ const dotenv = require('dotenv').config()
 const argv = require('minimist')(process.argv.slice(2))
 const request = require('sync-request')
 
-main(
-  argv['api-key'] || process.env.API_KEY,
-  argv['api-base'] || process.env.API_BASE || 'https://dns.api.gandi.net/api/v5',
-  argv.domain || process.env.DOMAIN,
-  argv.subdomain || process.env.SUBDOMAIN,
-  argv.ttl || process.env.TTL || 300,
-  argv['ip-provider'] || process.env.IP_PROVIDER || 'https://ifconfig.co/ip',
-  argv['force'] || false,
-  argv['v'] || false
-)
 
 function getCurrentIp (ipProvider) {
   return request('GET', ipProvider).getBody('utf8').trim()
@@ -129,3 +119,18 @@ function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, force, verb
     console.log(chalk.green('Done!'))
   }
 }
+
+module.exports = () => {
+  main(
+    argv['api-key'] || process.env.API_KEY,
+  argv['api-base'] || process.env.API_BASE || 'https://dns.api.gandi.net/api/v5',
+    argv.domain || process.env.DOMAIN,
+    argv.subdomain || process.env.SUBDOMAIN,
+    argv.ttl || process.env.TTL || 300,
+    argv['ip-provider'] || process.env.IP_PROVIDER || 'https://ifconfig.co/ip',
+    argv['force'] || false,
+    argv['v'] || false
+  )
+}
+
+
