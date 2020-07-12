@@ -21,7 +21,6 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "gandi-ddns": "file:src/index.js",
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
     "minimist": "^1.2.5",
