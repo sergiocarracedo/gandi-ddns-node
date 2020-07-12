@@ -4,23 +4,16 @@ Highly inspirated by https://github.com/cavebeat/gandi-live-dns
 
 ## Usage
 
-Add to ENV if you want to use from enywhere
+* Clone this repo
+* Install node dependencies with `yarn` or `npm install`
+* (optional) Add to ENV if you want to use from enywhere `export PATH=[PATH_TO_THIS]/bin:$PATH`
 
-```
-export PATH=[PATH_TO_THIS]/bin:$PATH
-```
-
-
-```shell script
-$ gandi-ddn
-# or
-$ [PATH_TO_THIS]/bin/gandi-ddn
-```
+* Run script with `gandi-ddn` or `[PATH_TO_THIS]/bin/gandi-ddn`
 
 If you don't set arguments config values are getted from .env file
 
 ```shell script
-$ gandi-ddn --api-key [apiKey] --api-base [apiBase] --domain [domain] --subdomain [subdomain] --ttl [ttl] -- ip-provider [ip-provider] 
+$ gandi-ddns --api-key [apiKey] --api-base [apiBase] --domain [domain] --subdomain [subdomain] --ttl [ttl] -- ip-provider [ip-provider] 
 ```
 
 ### Options
@@ -28,18 +21,18 @@ $ gandi-ddn --api-key [apiKey] --api-base [apiBase] --domain [domain] --subdomai
 #### Verbose
 
 ```shell script
-$ gandi-ddn -v
+$ gandi-ddns -v
 # or
-$ gandi-ddn --v
+$ gandi-ddns --v
 ```
 #### Force
 
 Force to update even if current local IP is the same as domain IP
 
 ```shell script
-$ gandi-ddn -force
+$ gandi-ddns -force
 # or
-$ gandi-ddn --force
+$ gandi-ddns --force
 ```
 
 #### --api-key | env API_KEY
