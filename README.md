@@ -5,6 +5,8 @@ Highly inspirated by https://github.com/cavebeat/gandi-live-dns
 ## Usage
 
 * Clone this repo
+* Copy `.env.example` to `.env`
+* Edit `.env` with your configuration
 * Install node dependencies with `yarn` or `npm install`
 * (optional) Add to ENV if you want to use from enywhere `export PATH=[PATH_TO_THIS]/bin:$PATH`
 
