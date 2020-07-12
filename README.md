@@ -60,3 +60,8 @@ Time To Live of the IP, default `300`
 #### --ip-provider | env IP_PROVIDER
 
 Ip provider to get current local IP, default `https://ifconfig.co/ip` the provider url must return just the IP
+
+#### --ip
+Ip to set instead of get from provider
+
+

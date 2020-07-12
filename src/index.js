@@ -49,26 +49,31 @@ function updateRecords(apiKey, apiBase, uuid, subdomain, ip, ttl) {
 }
 
 
-function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, force, verbose) {
+function main (apiKey, apiBase, domain, subdomains, ttl, ipProvider, ip, force, verbose) {
   subdomains = subdomains
     .split(',')
     .map(subdomain => subdomain.trim())
 
   // Get current IP
-  let ip
-  try {
-    ip = getCurrentIp(ipProvider)
-    if (verbose) {
-      console.log(chalk.green(`Local current IP ${ip}`))
+  if (!ip) {
+    try {
+      ip = getCurrentIp(ipProvider)
+      if (verbose) {
+        console.log(chalk.green(`Local current IP ${ip}`))
+      }
+    } catch (e) {
+      console.log(chalk.red('Error retrieving IP from provider:'))
+      console.log(chalk.red(`   Error code: ${e.statusCode}`))
+      if (verbose) {
+        console.log(chalk.red(`   Error message: ${e.message}`))
+      }
+      process.exit(1)
     }
-  } catch (e) {
-    console.log(chalk.red('Error retrieving IP from provider:'))
-    console.log(chalk.red(`   Error code: ${e.statusCode}`))
-    if (verbose) {
-      console.log(chalk.red(`   Error message: ${e.message}`))
-    }
-    process.exit(1)
+  } else {
+  if (verbose) {
+    console.log(chalk.green(`Using ${ip} as local IP`))
   }
+}
 
   // Get Gandi domain UUID
   let domainUUID
@@ -128,6 +133,7 @@ module.exports = () => {
     argv.subdomain || process.env.SUBDOMAIN,
     argv.ttl || process.env.TTL || 300,
     argv['ip-provider'] || process.env.IP_PROVIDER || 'https://ifconfig.co/ip',
+    argv['ip'] || null,
     argv['force'] || false,
     argv['v'] || false
   )
